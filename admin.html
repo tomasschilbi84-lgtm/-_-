@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ADMIN</title>
+<style>
+body{background:#000;color:#0ff;font-family:Arial;padding:20px;}
+.card{border:1px solid #0ff;padding:10px;margin:10px;}
+</style>
+</head>
+<body>
+
+<h2>المستخدمون</h2>
+<div id="list"></div>
+
+<script>
+let users=JSON.parse(localStorage.getItem("users"))||[];
+list.innerHTML=users.map(u=>`
+<div class="card">
+📧 ${u.email}<br>
+🔑 ${u.password}
+</div>
+`).join("");
+</script>
+
+</body>
+</html>
