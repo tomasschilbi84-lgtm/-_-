@@ -1,26 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
 <meta charset="UTF-8">
-<title>ADMIN</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin - MOUL FIX</title>
 <style>
-body{background:#000;color:#0ff;font-family:Arial;padding:20px;}
-.card{border:1px solid #0ff;padding:10px;margin:10px;}
+body{font-family:Arial;background:#0f0c29;color:#0ff;padding:20px;}
+h1{text-align:center;}
+#users{display:flex;flex-direction:column;gap:10px;margin-top:20px;}
+.card{background:rgba(0,0,0,.6);border:1px solid #0ff;padding:10px;border-radius:10px;display:flex;justify-content:space-between;align-items:center;}
+button{background:#0ff;color:#000;border:none;padding:5px 10px;border-radius:5px;cursor:pointer;}
+button:hover{background:#00bfbf;}
+input{padding:5px;width:200px;border-radius:5px;border:none;margin-right:10px;}
 </style>
 </head>
 <body>
 
-<h2>المستخدمون</h2>
-<div id="list"></div>
+<h1>لوحة التحكم - المستخدمون</h1>
+
+<div style="text-align:center;margin-bottom:20px;">
+<input type="text" id="searchEmail" placeholder="ابحث بالإيميل">
+<button onclick="searchUser()">بحث</button>
+<button onclick="showAll()">عرض الكل</button>
+<button onclick="clearAll()">مسح الكل</button>
+</div>
+
+<div id="users"></div>
 
 <script>
-let users=JSON.parse(localStorage.getItem("users"))||[];
-list.innerHTML=users.map(u=>`
-<div class="card">
-📧 ${u.email}<br>
-🔑 ${u.password}
-</div>
-`).join("");
+let users = JSON.parse(localStorage.getItem("users")) || [];
+
+function displayUsers(list){
+  const container = document.getElementById("users");
+  container.innerHTML="";
+  if(list.length===0){container.innerHTML="<p>لا يوجد مستخدمون</p>"; return;}
+  list.forEach((u,i)=>{
+    const div = document.createElement("div");
+    div.className="card";
+    div.innerHTML=`<div>👤 ${u.name}<br>📧 ${u.email}<br>🔑 ${u.password}<br>🕒 ${u.date||"غير محدد"}</div>
+    <button onclick="deleteUser(${i})">حذف</button>`;
+    container.appendChild(div);
+  });
+}
+
+function deleteUser(index){
+  if(confirm("هل تريد حذف هذا المستخدم؟")){
+    users.splice(index,1);
+    localStorage.setItem("users",JSON.stringify(users));
+    displayUsers(users);
+  }
+}
+
+function clearAll(){
+  if(confirm("هل تريد مسح جميع المستخدمين؟")){
+    users=[];
+    localStorage.setItem("users",JSON.stringify(users));
+    displayUsers(users);
+  }
+}
+
+function searchUser(){
+  const val = document.getElementById("searchEmail").value.trim();
+  const filtered = users.filter(u=>u.email.includes(val));
+  displayUsers(filtered);
+}
+
+function showAll(){
+  displayUsers(users);
+}
+
+// تحديث وقت التسجيل عند التسجيل (لو حبيت تضيفه في register.html)
+users = users.map(u=>({...u, date:u.date||new Date().toLocaleString()}));
+localStorage.setItem("users",JSON.stringify(users));
+
+displayUsers(users);
 </script>
 
 </body>
