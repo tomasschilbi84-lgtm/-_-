@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>𝑀𝒪𝒟𝒪𝒪𝒳𝒪𝐹𝐹</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: #0f0c29;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      font-size: 2.5rem;
+      text-shadow: 0 0 5px #00fff7, 0 0 10px #00fff7, 0 0 20px #00fff7;
+    }
+
+    .products, .previous {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 20px;
+    }
+
+    .card {
+      background: rgba(0, 0, 0, 0.6);
+      border: 2px solid #00fff7;
+      border-radius: 15px;
+      width: 250px;
+      padding: 20px;
+      text-align: center;
+      transition: 0.3s;
+      box-shadow: 0 0 20px #00fff7;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px #00fff7, 0 0 60px #00fff7;
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      text-shadow: 0 0 5px #00fff7;
+    }
+
+    .card p {
+      font-size: 1rem;
+      margin-bottom: 15px;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .card button {
+      background: #00fff7;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .card button:hover {
+      background: #00bfbf;
+      box-shadow: 0 0 10px #00fff7, 0 0 20px #00fff7;
+    }
+
+    .countdown {
+      font-weight: bold;
+      color: #ff00ff;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-top: 40px;
+      text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    /* متجاوب للشاشات الصغيرة */
+    @media (max-width: 768px) {
+      .products, .previous {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 10px;
+      }
+
+      .card {
+        width: 90%;
+        padding: 15px;
+      }
+
+      header {
+        font-size: 2rem;
+        padding: 30px 10px;
+      }
+
+      .card h2 {
+        font-size: 1.3rem;
+      }
+
+      .card p, .countdown {
+        font-size: 0.95rem;
+      }
+
+      .card button {
+        width: 100%;
+        padding: 12px 0;
+        font-size: 1rem;
+      }
+
+      .section-title {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>𝑀𝒪𝒟𝒪𝒪𝒳𝒪𝐹𝐹</header>
+
+  <div class="products">
+    <div class="card">
+      <img src="db3.jpg" alt="ورقة 1">
+      <h2>ورقة مراهنة 1</h2>
+      <div class="countdown" id="countdown1">الورقة متاحة مجانًا خلال 12:34 دقيقة فقط!</div>
+      <button onclick="window.open('https://chat.whatsapp.com/GRhNHvEFxTp7sJIUX1TI1w', '_blank')">اضغط لأخذ ورقة مجانا</button>
+    </div>
+
+    <div class="card">
+      <img src="db3.jpg" alt="ورقة 2">
+      <h2>ورقة مراهنة 2</h2>
+      <div class="countdown" id="countdown2">الورقة متاحة مجانًا خلال 10:20 دقيقة فقط!</div>
+      <button onclick="window.open('https://chat.whatsapp.com/GRhNHvEFxTp7sJIUX1TI1w', '_blank')">اضغط لأخذ ورقة مجانا</button>
+    </div>
+
+    <div class="card">
+      <img src="db3.jpg" alt="ورقة 3">
+      <h2>ورقة مراهنة 3</h2>
+      <div class="countdown" id="countdown3">الورقة متاحة مجانًا خلال 08:50 دقيقة فقط!</div>
+      <button onclick="window.open('https://chat.whatsapp.com/GRhNHvEFxTp7sJIUX1TI1w', '_blank')">اضغط لأخذ ورقة مجانا</button>
+    </div>
+  </div>
+
+  <h2 class="section-title">الأوراق السابقة</h2>
+  <div class="previous">
+    <div class="card">
+      <img src="sabi9a.jpg" alt="سابق 1">
+      <h2>ورقة سابقة 1</h2>
+    </div>
+    <div class="card">
+      <img src="sabi9a2.jpeg" alt="سابق 2">
+      <h2>ورقة سابقة 2</h2>
+    </div>
+    <div class="card">
+      <img src="sabi9a1.jpeg" alt="سابق 3">
+      <h2>ورقة سابقة 3</h2>
+    </div>
+  </div>
+
+  <footer>© 2025 جميع الحقوق محفوظة</footer>
+
+  <script>
+    function startCountdown(id, minutes, seconds) {
+      let countdownElement = document.getElementById(id);
+      let totalSeconds = minutes*60 + seconds;
+
+      let interval = setInterval(() => {
+        let m = Math.floor(totalSeconds/60);
+        let s = totalSeconds % 60;
+        countdownElement.textContent = `الورقة متاحة مجانًا خلال ${m}:${s < 10 ? '0'+s : s} دقيقة فقط!`;
+        totalSeconds--;
+        if(totalSeconds < 0) {
+          clearInterval(interval);
+          countdownElement.textContent = `انتهى العرض!`;
+        }
+      }, 1000);
+    }
+
+    startCountdown('countdown1', 12, 34);
+    startCountdown('countdown2', 10, 20);
+    startCountdown('countdown3', 8, 50);
+  </script>
+
+</body>
+</html>
